@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>AJAX2 - Music Collection</title>
+
+		<link rel="stylesheet" href="../styles/main.css" type="text/css">
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.min.js"></script>
+		<script src="scripts/hbs-helpers.js" defer></script>
+		<script src="scripts/bl.js" defer></script>
+		<script src="scripts/index-controller.js" defer></script>
+
+		<script id="music-list-template" type="text/x-handlebars-template">
+			{{#list this}}
+			<h3>{{?? title 'Title Not Found'}}</h3>
+			<p>{{?? artist 'Artist Not Found'}}</p>
+			{{/list}}
+		</script>
+
+		<script>
+			class Bootstrapper {
+				static start() {
+					document.addEventListener(
+						'DOMContentLoaded',
+						() => Bootstrapper.renderIndex());
+				}
+
+				static renderIndex() {
+					const musicService = new MusicService();
+					const indexController = new IndexController(musicService);
+
+					indexController.indexAction();
+				}
+			}
+			Bootstrapper.start();
+		</script>
+	</head>
+	<body>
+		<h1>My Simple Music Collection</h1>
+		<div id="music-list"></div>
+	</body>
+</html>

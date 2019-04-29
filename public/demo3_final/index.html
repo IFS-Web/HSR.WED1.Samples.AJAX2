@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>AJAX2 - Music Collection</title>
+
+		<link rel="stylesheet" href="../styles/main.css" type="text/css">
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.min.js"></script>
+		<script src="scripts/ui/helpers/hbs-helpers.js" defer></script>
+		<script src="scripts/ui/bootstrapper.js" type="module"></script> <!-- TODO: Demo 4 - remove IndexController and set type="module" -->
+		<script src="scripts/bl/music-service.js" type="module"></script> <!-- TODO: Demo 2 - set type="module" -->
+
+
+		<script id="music-list-template" type="text/x-handlebars-template">
+			{{#list this}}
+			<h3>{{?? title 'Title Not Found'}}</h3>
+			<p>{{?? artist 'Artist Not Found'}}</p>
+			{{/list}}
+		</script>
+
+		<script type="module">
+			// TODO: Demo 5
+			import {Bootstrapper} from './scripts/ui/bootstrapper.js';
+
+			Bootstrapper.start();
+		</script>
+	</head>
+	<body>
+		<h1>My Simple Music Collection</h1>
+		<div id="music-list"></div>
+	</body>
+</html>

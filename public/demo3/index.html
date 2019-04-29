@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>AJAX2 - Music Collection</title>
+
+		<link rel="stylesheet" href="../styles/main.css" type="text/css">
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.min.js"></script>
+		<script src="scripts/ui/helpers/hbs-helpers.js" defer></script>
+		<script src="scripts/ui/controllers/index-controller.js" defer></script>
+		<script src="scripts/ui/bootstrapper.js" defer></script><!-- TODO: Demo 4 - set type="module" -->
+
+		<!-- TODO: Demo 2 - set type="module" -->
+		<script src="scripts/bl/music-entry.js" defer></script>
+		<script src="scripts/bl/music-service.js" defer></script>
+
+
+		<script id="music-list-template" type="text/x-handlebars-template">
+			{{#list this}}
+			<h3>{{?? title 'Title Not Found'}}</h3>
+			<p>{{?? artist 'Artist Not Found'}}</p>
+			{{/list}}
+		</script>
+
+		<script>
+			// TODO: Demo 5 - define as Module and import Boostrapper from ./scripts/ui/bootstrapper
+			document.addEventListener(
+					'DOMContentLoaded',
+					() => Bootstrapper.start());
+		</script>
+	</head>
+	<body>
+		<h1>My Simple Music Collection</h1>
+		<div id="music-list"></div>
+	</body>
+</html>
