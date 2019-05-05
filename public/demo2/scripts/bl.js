@@ -1,4 +1,4 @@
-// TODO: Demo 3 - create class MusicEntry (model) with artist and title properties
+// TODO: Demo 2 - create class MusicEntry (model) with artist and title properties
 class MusicService {
     async getAll() {
         const response = await fetch(MusicService.BASE_URL);
